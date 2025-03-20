@@ -279,7 +279,7 @@ def print_map_summary(mean_ap,
     num_classes = len(results)
 
     recalls = np.zeros((num_scales, num_classes), dtype=np.float32)
-    precision = np.zeros((num_scales,num_classes),dtype=np.float32)   # add precision
+    precision = np.zeros((num_scales,num_classes), dtype=np.float32)   # add precision
     aps = np.zeros((num_scales, num_classes), dtype=np.float32)
     num_gts = np.zeros((num_scales, num_classes), dtype=int)
     for i, cls_result in enumerate(results):

@@ -279,14 +279,14 @@ def print_map_summary(mean_ap,
     num_classes = len(results)
 
     recalls = np.zeros((num_scales, num_classes), dtype=np.float32)
-    precision = np.zeros((num_scales,num_classes), dtype=np.float32)   # add precision
+    precision = np.zeros((num_scales,num_classes), dtype=np.float32)  
     aps = np.zeros((num_scales, num_classes), dtype=np.float32)
     num_gts = np.zeros((num_scales, num_classes), dtype=int)
     for i, cls_result in enumerate(results):
         if cls_result['recall'].size > 0:
             recalls[:, i] = np.array(cls_result['recall'], ndmin=2)[:, -1]
         if cls_result['precision'].size > 0 ：   # add precision
-             precision[:, i] = np.array(cls_result['precision'], ndmin=2)[:, -1]    # add precision
+             precision[:, i] = np.array(cls_result['precision'], ndmin=2)[:, -1]   
         aps[:, i] = cls_result['ap']
         num_gts[:, i] = cls_result['num_gts']
 
@@ -298,7 +298,7 @@ def print_map_summary(mean_ap,
     if not isinstance(mean_ap, list):
         mean_ap = [mean_ap]
 
-    header = ['class', 'gts', 'dets', 'recall', 'precision', 'ap']     # add precision
+    header = ['class', 'gts', 'dets', 'recall', 'precision', 'ap']    
     for i in range(num_scales):
         if scale_ranges is not None:
             print_log(f'Scale range {scale_ranges[i]}', logger=logger)
